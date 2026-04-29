@@ -1,7 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f4f7f6;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #f0f4f2;
+    font-family: 'Inter', sans-serif;
+    color: #1e2d28;
+    margin: 0;
+    padding: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f0f4f2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #a7c5b5;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #116A46;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer;
+  }
+  .sidebar-link-active {
+    @apply bg-white text-brand-green shadow-sm;
+  }
+  .sidebar-link-inactive {
+    @apply text-emerald-100 hover:bg-white/10 hover:text-white;
+  }
+  .card-base {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+  }
+  .btn-primary {
+    @apply flex items-center gap-2 px-5 py-2.5 bg-brand-green text-white rounded-xl font-semibold text-sm transition-all duration-200 hover:bg-brand-hover active:scale-95 shadow-sm;
+  }
+  .btn-secondary {
+    @apply flex items-center gap-2 px-5 py-2.5 bg-white text-brand-green border border-brand-green rounded-xl font-semibold text-sm transition-all duration-200 hover:bg-brand-light active:scale-95;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  .animate-pulse-soft {
+    animation: pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+.progress-fill {
+  animation: progressFill 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }

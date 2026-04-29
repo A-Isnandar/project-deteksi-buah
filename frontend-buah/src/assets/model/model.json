@@ -1,0 +1,5 @@
+{
+  "_comment": "Ini adalah placeholder untuk file model CNN dari Teachable Machine.",
+  "_instruction": "Ganti file ini dengan model.json asli hasil export Teachable Machine untuk mode offline.",
+  "_usage": "Letakkan model.json dan file weights*.bin di folder ini (src/assets/model/), lalu update LOCAL_MODEL_URL di hooks/useModelLoader.js"
+}
